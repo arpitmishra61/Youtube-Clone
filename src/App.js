@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="screen">
-        <SideBar />
+        <SideBar mainScreen={false} trendingVideos={true} />
         <MainScreen />
       </div>
-      
+
     </div>
   );
 }
