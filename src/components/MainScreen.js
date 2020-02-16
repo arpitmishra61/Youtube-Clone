@@ -1,7 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { apiKey, channels } from "../config/config"
+import TrendingVideos from './TrendingVideos'
 let tempVideos = []
+
 const fetchVideoDetails = async (channelId, videoState, setVideoState) => {
 
 
@@ -32,20 +34,21 @@ const fetchVideosExtraDetails =
 
     }
 
-export default function MainScreen() {
+export default function MainScreen(props) {
     const [videoState, setVideoState] = useState([])
 
     let setInitialVideos = () => {
+        if (false)
 
 
 
-        Object.keys(channels).forEach((category, index) =>
+            Object.keys(channels).forEach((category, index) =>
 
-            channels[category].byId.forEach(channelId =>
+                channels[category].byId.forEach(channelId =>
 
-                fetchVideoDetails(channelId, videoState, setVideoState)
+                    fetchVideoDetails(channelId, videoState, setVideoState)
 
-            ))
+                ))
     }
 
 
@@ -68,41 +71,47 @@ export default function MainScreen() {
 
 
 
+    if (props.mainVideos && false) {
+        if (videoState.length === 0 || true) {
+            console.log("rendering-1")
+            return (
+                <div className="mainScreen">Loading</div>
+            )
+        }
 
-    if (videoState.length === 0) {
-        console.log("rendering-1")
-        return (
-            <div className="mainScreen">Loading</div>
-        )
-    }
-    else {
-        console.log("rendering-2")
-        console.log("state", videoState)
-        return <div className="mainScreen">
-            {videoState.map((video, i) => {
+        else {
+            console.log("rendering-2")
+            console.log("state", videoState)
+
+            return <div className="mainScreen">
+                {videoState.map((video, i) => {
 
 
-                return <div className="videoContainer my-3" key={i}>
+                    return <div className="videoContainer my-3" key={i}>
 
 
-                    <img src={video.snippet.thumbnails.medium.url} alt="" />
-                    <div className="content">
-                        {video.extraDetails ?
-                            <img src={video.extraDetails.channelImage} alt="" />
-                            : null}
-                        <div className="details">
-                            <p>{video.snippet.title.length > 44 ? video.snippet.title.slice(0, 44) + "..." : video.snippet.title}</p>
-                            <p>{videoState.extraDetails ?
-                                videoState.extraDetails.title
-                                : null}</p>
-                            <p>9.4M views</p>
+                        <img src={video.snippet.thumbnails.medium.url} alt="" />
+                        <div className="content">
+                            {video.extraDetails ?
+                                <img src={video.extraDetails.channelImage} alt="" />
+                                : null}
+                            <div className="details">
+                                <p>{video.snippet.title.length > 44 ? video.snippet.title.slice(0, 44) + "..." : video.snippet.title}</p>
+                                <p>{videoState.extraDetails ?
+                                    videoState.extraDetails.title
+                                    : null}</p>
+                                <p>9.4M views</p>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            })}
-        </div>
+                    </div>
+                })}
+            </div>
+        }
     }
+    else
+        if (props.trendingVideos)
+            return <TrendingVideos />
 
 
 

@@ -165,3 +165,63 @@ nav .extras i{
   margin-bottom: 0px;
   color: #202020;
 }
+
+
+.trendingScreen{
+  display: block !important;
+}
+.trendingVideo{
+  display: flex;
+  width: 80%;
+ 
+  
+  
+  
+  
+  
+}
+ .trendingVideo .videoImage{
+    position: relative;
+    
+ }
+
+.trendingVideo .videoContent h5{
+  font-family: 'Roboto' ,'Noto',sans-serif !important;
+  font-weight: 100;
+  font-size: 20px;
+  margin-bottom: 2px;
+  
+  
+  
+
+
+}
+
+.trendingVideo .videoContent p{
+  font-size:14px;
+  color: #202020;
+  line-height: 18px;
+  
+  
+}
+.trendingVideo .videoContent p i{
+  font-size: 6px;
+}
+
+.trendingVideo .timeDuration{
+  
+position: absolute;
+ 
+ 
+ background-color: #000000;
+ color:white;
+ font-size: 12px;
+ top:115px;
+ right:5px;
+
+
+}
+
+.trendingVideo img{
+  width: 246px;
+}
